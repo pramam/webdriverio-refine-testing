@@ -31,6 +31,7 @@ class HomePage extends Page {
         let actualTitle = await this.starters.getText();
         if ( actualTitle !== title)
             throw Error(`StarterPage.clickOnStarters: title ${actualTitle} does not match expected title ${title}`);
+        await this.starters.click();
     }
 
 }

@@ -4,8 +4,8 @@ const StartersPage = require('../../pageobjects/client/starters.page');
 describe(`User Story: Place an order`, ()=>{
     describe(`Home Page`, ()=> {
         it(`make sure home page is loaded`, async ()=>{
-            HomePage.open();
-            HomePage.ensureOnPage();
+            await HomePage.open();
+            await HomePage.ensureOnPage();
             // await browser.url("https://example.refine.dev");
 
             // Make sure page is loaded
@@ -16,7 +16,7 @@ describe(`User Story: Place an order`, ()=>{
 
         })
         it(`click on Starters`, async ()=> {
-            HomePage.clickOnStarters();
+            await HomePage.clickOnStarters();
             // const link = await $('=STARTERS')
             // console.log(await link.getText()) // outputs: "STARTERS"
             // console.log(await link.getAttribute('href'))
@@ -25,7 +25,10 @@ describe(`User Story: Place an order`, ()=>{
     })
     describe(`StartersPage`, ()=>{
         it(`make sure Starters Page is loaded`, async ()=>{
-            StartersPage.ensureOnPage();
+            await StartersPage.ensureOnPage();
+        })
+        it(`order 3rd item on menu`, async()=>{
+            await StartersPage.orderItemNo(3);
         })
     })
 })
